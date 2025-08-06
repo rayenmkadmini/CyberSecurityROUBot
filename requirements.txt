@@ -1,0 +1,9 @@
+flask
+requests
+python-telegram-bot==20.3
+fuzzywuzzy
+python-Levenshtein
+gTTS
+SpeechRecognition
+pydub
+whois
