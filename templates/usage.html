@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>سجل الاستخدام</title>
+  <link rel="stylesheet" href="/project_root/static/style.css">
+  <script>
+    async function loadLogs() {
+      const res = await fetch('/api/logs');
+      const logs = await res.json();
+      const table = document.getElementById('logs');
+      logs.forEach(log => {
+        const row = `<tr><td>${log[0]}</td><td>${log[1]}</td><td>${log[2]}</td></tr>`;
+        table.innerHTML += row;
+      });
+    }
+    window.onload = loadLogs;
+  </script>
+</head>
+<body>
+  <h2>سجل الأوامر</h2>
+  <table border="1">
+    <thead><tr><th>User ID</th><th>Command</th><th>Timestamp</th></tr></thead>
+    <tbody id="logs"></tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة التحكم</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h2>🎛️ لوحة التحكم</h2>
+  <nav>
+    <a href="/users">👤 المستخدمين</a>
+    <a href="/usage">📊 السجل</a>
+    <a href="/logout">🚪 تسجيل الخروج</a>
+  </nav>
+</body>
+</html>
+
+# ✅ ملف: templates/users.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>المستخدمون</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h2>📋 قائمة المستخدمين</h2>
+  <table>
+    <tr><th>ID</th><th>Telegram ID</th><th>Username</th><th>Full Name</th><th>Role</th></tr>
+    {% for u in users %}
+    <tr>
+      <td>{{ u[0] }}</td><td>{{ u[1] }}</td><td>{{ u[2] }}</td><td>{{ u[3] }}</td><td>{{ u[4] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="/dashboard">⬅️ رجوع</a>
+</body>
+</html>
+
+# ✅ ملف: templates/usage.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>سجل الأوامر</title>
+  <link rel="stylesheet" href="/project_root/static/style.css">
+</head>
+<body>
+  <h2>📊 سجل الأوامر</h2>
+  <table>
+    <tr><th>ID</th><th>Username</th><th>Command</th><th>Time</th></tr>
+    {% for log in logs %}
+    <tr>
+      <td>{{ log[0] }}</td><td>{{ log[1] }}</td><td>{{ log[2] }}</td><td>{{ log[3] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <a href="dashboard.html">⬅️ رجوع</a>
+</body>
+</html>

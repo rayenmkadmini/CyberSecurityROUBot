@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>المستخدمون</title>
+  <link rel="stylesheet" href="/project_root/static/style.css">
+  <script>
+    async function loadUsers() {
+      const res = await fetch('/api/users');
+      const users = await res.json();
+      const table = document.getElementById('users');
+      users.forEach(user => {
+        const row = `<tr><td>${user[0]}</td><td>${user[1]}</td><td>${user[2]}</td><td>${user[3]}</td><td>${user[4]}</td></tr>`;
+        table.innerHTML += row;
+      });
+    }
+    window.onload = loadUsers;
+  </script>
+</head>
+<body>
+  <h2>قائمة المستخدمين</h2>
+  <table border="1">
+    <thead><tr><th>ID</th><th>Username</th><th>Full Name</th><th>Role</th><th>Banned</th></tr></thead>
+    <tbody id="users"></tbody>
+  </table>
+</body>
+</html>
